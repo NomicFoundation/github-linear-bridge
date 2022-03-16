@@ -1,0 +1,10 @@
+{
+  "name": "github-linear-bridge",
+  "version": "0.0.1",
+  "description": "An custom bridge between GitHub and Linear",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}
