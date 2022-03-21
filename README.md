@@ -77,3 +77,4 @@ The file `packages/linear-webhooks/api/github-linear-users-config.ts` must be ke
 - Once the Github review requests create Linear subtasks, they should be autoclosed when the review is done
 - We should sync priorities using Github labels (i.e. if a task is assigned priority high, and there's an associated Github issue/PR, we should set the label `priority:high`)
 - We should sync Linear label changes into Github, if a label with the same name exists.
+- When the status of an Issue is updated in Linear (eg Triage->Backlog, Backlog->Active, etc), the corresponding GitHub issue should be updated (perhaps with a label, or perhaps just with a comment, or whatever makes sense), so that observers of the GitHub issue are kept informed of progress.
