@@ -53,7 +53,8 @@ async function main(
       params.linear.apiKey,
       params.linear.teamId,
       issueData.data.html_url,
-      issueData.data.title
+      issueData.data.title,
+      issueData.data.body ?? ""
     );
 
     console.debug("Assigning Linear issue");

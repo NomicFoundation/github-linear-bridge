@@ -16,13 +16,18 @@ export async function createIssue(
   apiKey: string,
   teamId: string,
   githubIssueUrl: string,
-  githubIssueTile: string
+  githubIssueTile: string,
+  githubIssueBody: string
 ) {
   const linearClient = new LinearClient({ apiKey });
   const ghId = githubUrlToGhId(githubIssueUrl);
 
   const title = `${githubIssueTile} [${ghId}]`;
-  const description = `[Github issue/pull request](${githubIssueUrl})
+  const description = `${githubIssueBody}
+
+---
+
+[Github issue/pull request](${githubIssueUrl})
 
 _This issue was automatically created, **do not edit its description**._
 
