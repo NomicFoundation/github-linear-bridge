@@ -38,16 +38,6 @@ The Linear team workflow must have an `Autoclosed` state with type `Completed`.
 
 The file `packages/linear-webhooks/api/github-linear-users-config.ts` must be kept up-to-date.
 
-### Current limitations
-
-- Github Actions are not automatically run for PRs of external contributors, so we need to manually run them
-- Reopening an issue from Github doesn't reopen/restore it in Linear
-
-### Future work
-
-- When a review is requested for a PR, create a Linear sub-issue with the reviewer as the assignee
-- Reopen/restore an issue in Linear if reopened in Github
-
 ## Vercel API
 
 This part of the project, which can be found in `packages/linear-webhooks` contains a single-endpoint API that needs to be setup as a Linear webhook
