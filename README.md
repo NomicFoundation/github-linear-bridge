@@ -45,7 +45,6 @@ The file `packages/linear-webhooks/api/github-linear-users-config.ts` must be ke
 
 ### Future work
 
-- Migrate to a private Github App to avoid the limitation
 - When a review is requested for a PR, create a Linear sub-issue with the reviewer as the assignee
 - Reopen/restore an issue in Linear if reopened in Github
 
