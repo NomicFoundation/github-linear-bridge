@@ -153,10 +153,8 @@ async function addGithubIssueAssignee(
 }
 
 export default async (req: VercelRequest, res: VercelResponse) => {
-  if (process.env.IS_TEST_DEPLOYMENT === "true") {
-    
-    
-    
+  console.error({IS_TEST_DEPLOYMENT: process.env.IS_TEST_DEPLOYMENT});
+  if (process.env.IS_TEST_DEPLOYMENT) {    
     console.error(req.body);
 
     process.exit(1);
