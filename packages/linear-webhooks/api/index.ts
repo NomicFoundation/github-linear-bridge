@@ -153,12 +153,19 @@ async function addGithubIssueAssignee(
 }
 
 export default async (req: VercelRequest, res: VercelResponse) => {
-  console.error({IS_TEST_DEPLOYMENT: process.env.IS_TEST_DEPLOYMENT});
-  if (process.env.IS_TEST_DEPLOYMENT) {    
-    console.error(req.body);
+  if (req.body.type !== "Issue") {
+    return;
+  }
 
-    process.exit(1);
-    // return res.status(200).json({ status: "ok" });
+  const isTestDeployment = process.env.IS_TEST_DEPLOYMENT !== undefined;
+  const isTestTeam =
+    req.body?.data?.team?.id === process.env.LINEAR_TEST_TEAM_ID;
+
+  // We only run the webhook for this combination:
+  //  - The test team in the test deployment
+  //  - Other teams in the production deployment
+  if (isTestDeployment !== isTestTeam) {
+    return res.status(200).json({ status: "ok" });
   }
 
   try {
