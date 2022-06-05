@@ -153,11 +153,23 @@ async function addGithubIssueAssignee(
 }
 
 export default async (req: VercelRequest, res: VercelResponse) => {
+  if (process.env.IS_TEST_DEPLOYMENT === "true") {
+    
+    
+    
+    console.error(req.body);
+
+    process.exit(1);
+    // return res.status(200).json({ status: "ok" });
+  }
+
   try {
     const ghId = getGithubIssueIdFromDescription(req.body);
     if (ghId === undefined) {
       console.log("No associated GH issue found");
-      return;
+      return res
+        .status(404)
+        .json({ status: "error", error: "No associated GH issue found" });
     }
 
     if (
@@ -186,6 +198,8 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         await addGithubIssueAssignee(ghId, assignee);
       }
     }
+
+    return res.status(200).json({ status: "ok" });
   } catch (error) {
     console.error(error);
 
