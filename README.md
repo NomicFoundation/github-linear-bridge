@@ -58,5 +58,7 @@ The webhook requires these environment variables:
 
 - `LINEAR_API_KEY`: An API key for the Linear user we use for automation
 - `GITHUB_ACCESS_TOKEN`: A personal Github access token of the user we use for automation, with public repositories access
+- `LINEAR_TEST_TEAM_ID`: The ID of the Linear team that we use to test these integrations.
+- `IS_TEST_DEPLOYMENT`: ONLY FOR TEST DEPLOYMENT — Any value
 
 The file `packages/linear-webhooks/api/github-linear-users-config.ts` must be kept up-to-date.

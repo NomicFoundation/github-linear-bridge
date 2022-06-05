@@ -161,15 +161,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   const isTestTeam =
     req.body?.data?.team?.id === process.env.LINEAR_TEST_TEAM_ID;
 
-  console.log(`
-  process.env.IS_TEST_DEPLOYMENT: ${process.env.IS_TEST_DEPLOYMENT}
-  isTestDeployment: ${isTestDeployment}
-  isTestTeam: ${isTestTeam}
-  req.body?.data?.team?.id: ${req.body?.data?.team?.id}
-  process.env.LINEAR_TEST_TEAM_ID: ${process.env.LINEAR_TEST_TEAM_ID}
-  req.body.data: ${req.body.data}
-`);
-
   // We only run the webhook for this combination:
   //  - The test team in the test deployment
   //  - Other teams in the production deployment
