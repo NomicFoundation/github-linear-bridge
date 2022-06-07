@@ -157,6 +157,8 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     return;
   }
 
+  console.log(JSON.stringify(req.body, undefined, 2));
+
   const isTestDeployment = process.env.IS_TEST_DEPLOYMENT !== undefined;
   const isTestTeam =
     req.body?.data?.team?.id === process.env.LINEAR_TEST_TEAM_ID;
