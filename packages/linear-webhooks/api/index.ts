@@ -157,6 +157,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     return;
   }
 
+  console.log("hello");
   console.log(JSON.stringify(req.body, undefined, 2));
 
   const isTestDeployment = process.env.IS_TEST_DEPLOYMENT !== undefined;
